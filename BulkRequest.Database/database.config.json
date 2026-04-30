@@ -1,0 +1,80 @@
+﻿{
+  "main": {
+    "Name": "main",
+    "Provider": "Npgsql",
+    "Servers": {
+      "192.108.100.101:5432": {
+        "Host": "192.108.100.101",
+        "Port": "5432",
+        "Databases": {
+          "kaz": { "Name": "kaz" }
+        }
+      },
+      "192.108.100.102:5432": {
+        "Host": "192.108.100.102",
+        "Port": "5432",
+        "Databases": {
+          "bug": { "Name": "bug" },
+          "agr": { "Name": "agr" },
+          "akt": { "Name": "akt" }
+        }
+      },
+      "192.108.100.103:5432": {
+        "Host": "192.108.100.103",
+        "Port": "5432",
+        "Databases": {
+          "zel": { "Name": "zel" },
+          "alm": { "Name": "alm" }
+        }
+      },
+      "192.108.100.104:5432": {
+        "Host": "192.108.100.104",
+        "Port": "5432",
+        "Databases": {
+          "moc": { "Name": "moc" },
+          "sok": { "Name": "sok" },
+          "kuz": { "Name": "kuz" }
+        }
+      }
+    }
+  },
+  "reserve": {
+    "Name": "reserve",
+    "Provider": "SQLServer",
+    "Servers": {
+      "192.108.80.101:1433": {
+        "Host": "192.108.80.101",
+        "Port": "1433",
+        "Databases": {
+          "kaz": { "Name": "kaz" }
+        }
+      },
+      "192.108.80.102:1433": {
+        "Host": "192.108.80.102",
+        "Port": "1433",
+        "Databases": {
+          "bug": { "Name": "bug" },
+          "agr": { "Name": "agr" },
+          "akt": { "Name": "akt" }
+        }
+      },
+      "192.108.80.103:1433": {
+        "Host": "192.108.80.103",
+        "Port": "1433",
+        "Databases": {
+          "zel": { "Name": "zel" },
+          "alm": { "Name": "alm" }
+        }
+      },
+      "192.108.80.104:1433": {
+        "Host": "192.108.80.104",
+        "Port": "1433",
+        "Databases": {
+          "moc": { "Name": "moc" },
+          "sok": { "Name": "sok" },
+          "kuz": { "Name": "kuz" }
+        }
+      }
+    }
+  }
+}

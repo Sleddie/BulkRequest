@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../DefaultSolutions/DefaultSolutions/DefaultSolutions.csproj" />
+  <Project Path="BulkRequest.Database/BulkRequest.Database.csproj" Id="14894dc3-6b6c-4af7-b351-6df856322c91" />
+  <Project Path="BulkRequest/BulkRequest.csproj" />
+</Solution>
