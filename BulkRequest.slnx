@@ -1,5 +1,7 @@
 <Solution>
   <Project Path="../DefaultSolutions/DefaultSolutions/DefaultSolutions.csproj" />
+  <Project Path="BulkRequest.App.Base/BulkRequest.App.Base.csproj" Id="98de5268-c103-47aa-86b8-95eb429da2eb" />
+  <Project Path="BulkRequest.App.Wpf/BulkRequest.App.Wpf.csproj" Id="32b4c91c-a2ff-468d-9651-964a3058cbfa" />
   <Project Path="BulkRequest.Database/BulkRequest.Database.csproj" Id="14894dc3-6b6c-4af7-b351-6df856322c91" />
   <Project Path="BulkRequest/BulkRequest.csproj" />
 </Solution>
