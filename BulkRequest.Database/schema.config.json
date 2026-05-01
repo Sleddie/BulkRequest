@@ -1,1 +1,78 @@
-﻿
+﻿{
+  "kaz": {
+    "Name": "kaz",
+    "Kernel": { "Name": "capital" },
+    "Schemas": {
+      "avia": { "Name": "avia" },
+      "kir": { "Name": "kir" },
+      "mos": { "Name": "mos" },
+      "nsav": { "Name": "nsav" },
+      "priv": { "Name": "priv" },
+      "sov": { "Name": "sov" },
+      "vah": { "Name": "vah" }
+    }
+  },
+  "bug": {
+    "Name": "bug",
+    "Kernel": { "Name": "cbug" },
+    "Schemas": {
+      "l1": { "Name": "l1" },
+      "l2": { "Name": "l2" },
+      "l3": { "Name": "l3" },
+      "l4": { "Name": "l4" }
+    }
+  },
+  "agr": {
+    "Name": "agr",
+    "Kernel": { "Name": "cagr" },
+    "Schemas": {
+      "lagr": { "Name": "lagr" }
+    }
+  },
+  "akt": {
+    "Name": "akt",
+    "Kernel": { "Name": "cakt" },
+    "Schemas": {
+      "lakt": { "Name": "lakt" }
+    }
+  },
+  "zel": {
+    "Name": "zel",
+    "Kernel": { "Name": "czel" },
+    "Schemas": {
+      "la": { "Name": "la" },
+      "lb": { "Name": "lb" },
+      "lc": { "Name": "lc" },
+      "ld": { "Name": "ld" },
+      "le": { "Name": "le" }
+    }
+  },
+  "alm": {
+    "Name": "alm",
+    "Kernel": { "Name": "calm" },
+    "Schemas": {
+      "lalm": { "Name": "lalm" }
+    }
+  },
+  "moc": {
+    "Name": "moc",
+    "Kernel": { "Name": "cmoc" },
+    "Schemas": {
+      "lmoc": { "Name": "lmoc" }
+    }
+  },
+  "sok": {
+    "Name": "sok",
+    "Kernel": { "Name": "csok" },
+    "Schemas": {
+      "lsok": { "Name": "lsok" }
+    }
+  },
+  "kuz": {
+    "Name": "kuz",
+    "Kernel": { "Name": "ckuz" },
+    "Schemas": {
+      "lkuz": { "Name": "lkuz" }
+    }
+  }
+}

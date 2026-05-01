@@ -1,48 +1,10 @@
 ﻿{
-  "main": {
-    "Name": "main",
-    "Provider": "Npgsql",
-    "Servers": {
-      "192.108.100.101:5432": {
-        "Host": "192.108.100.101",
-        "Port": "5432",
-        "Databases": {
-          "kaz": { "Name": "kaz" }
-        }
-      },
-      "192.108.100.102:5432": {
-        "Host": "192.108.100.102",
-        "Port": "5432",
-        "Databases": {
-          "bug": { "Name": "bug" },
-          "agr": { "Name": "agr" },
-          "akt": { "Name": "akt" }
-        }
-      },
-      "192.108.100.103:5432": {
-        "Host": "192.108.100.103",
-        "Port": "5432",
-        "Databases": {
-          "zel": { "Name": "zel" },
-          "alm": { "Name": "alm" }
-        }
-      },
-      "192.108.100.104:5432": {
-        "Host": "192.108.100.104",
-        "Port": "5432",
-        "Databases": {
-          "moc": { "Name": "moc" },
-          "sok": { "Name": "sok" },
-          "kuz": { "Name": "kuz" }
-        }
-      }
-    }
-  },
-  "reserve": {
-    "Name": "reserve",
+  "primal": {
+    "Name": "primal",
     "Provider": "SQLServer",
     "Servers": {
       "192.108.80.101:1433": {
+        "Name": "ms-db-001",
         "Host": "192.108.80.101",
         "Port": "1433",
         "Databases": {
@@ -50,29 +12,75 @@
         }
       },
       "192.108.80.102:1433": {
+        "Name": "ms-db-002",
         "Host": "192.108.80.102",
         "Port": "1433",
         "Databases": {
-          "bug": { "Name": "bug" },
           "agr": { "Name": "agr" },
           "akt": { "Name": "akt" }
         }
       },
       "192.108.80.103:1433": {
+        "Name": "ms-db-003",
         "Host": "192.108.80.103",
         "Port": "1433",
         "Databases": {
-          "zel": { "Name": "zel" },
-          "alm": { "Name": "alm" }
+          "alm": { "Name": "alm" },
+          "bug": { "Name": "bug" }
         }
       },
       "192.108.80.104:1433": {
+        "Name": "ms-db-004",
         "Host": "192.108.80.104",
         "Port": "1433",
         "Databases": {
           "moc": { "Name": "moc" },
           "sok": { "Name": "sok" },
           "kuz": { "Name": "kuz" }
+        }
+      },
+      "192.108.80.105:1433": {
+        "Name": "ms-db-005",
+        "Host": "192.108.80.105",
+        "Port": "1433",
+        "Databases": {
+          "zel": { "Name": "zel" }
+        }
+      }
+    }
+  },
+  "alter": {
+    "Name": "alter",
+    "Provider": "Npgsql",
+    "Servers": {
+      "192.108.100.211:5432": {
+        "Name": "pg-db-001",
+        "Host": "192.108.100.101",
+        "Port": "5432",
+        "Databases": {
+          "kaz": { "Name": "kaz" },
+          "alm": { "Name": "alm" }
+        }
+      },
+      "192.108.100.212:5432": {
+        "Name": "pg-db-002",
+        "Host": "192.108.100.102",
+        "Port": "5432",
+        "Databases": {
+          "agr": { "Name": "agr" },
+          "akt": { "Name": "akt" },
+          "moc": { "Name": "moc" },
+          "sok": { "Name": "sok" },
+          "kuz": { "Name": "kuz" }
+        }
+      },
+      "192.108.100.213:5432": {
+        "Name": "pg-db-003",
+        "Host": "192.108.100.103",
+        "Port": "5432",
+        "Databases": {
+          "bug": { "Name": "bug" },
+          "zel": { "Name": "zel" }
         }
       }
     }
