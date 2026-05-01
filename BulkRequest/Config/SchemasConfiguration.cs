@@ -1,14 +1,14 @@
 ﻿using DefaultSolutions;
-using System.Text.Json;
 
 namespace BulkRequest.Config
 {
     internal static class SchemasConfiguration
     {
+        /// <summary>Имя файла конфигурации схем в базах данных.</summary>
         public const string DefaultConfigFileName = "schema.config.json";
 
-        private static Lazy<Dictionary<string, ServersGroupInfo>> s_connectionConfig =
-            new(LoadSchemaConfig);
+        private static Lazy<Dictionary<string, DatabaseSchemasInfo>> s_connectionConfig =
+            new(LoadSchemasConfig);
 
         private static string ConfigFileFullPath
         {
@@ -22,18 +22,36 @@ namespace BulkRequest.Config
                 return field;
             }
         }
-        private static Dictionary<string, ServersGroupInfo> Configuration
+
+        private static Dictionary<string, DatabaseSchemasInfo> Configuration
         {
             get => s_connectionConfig.Value;
         }
 
-        private static Dictionary<string, ServersGroupInfo> LoadSchemaConfig()
+        /// <summary>Коллекция имён баз данных.</summary>
+        public static ICollection<string> Databases { get => Configuration.Keys; }
+
+        /// <summary>Коллекция объектов типа SchemaInfo со сведениями о схеме
+        /// в базе данных.</summary>
+        /// <param name="database">Имя базы данных.</param>
+        /// <returns></returns>
+        public static ICollection<SchemaInfo> Schemas(string database)
         {
-            string configText = FileExplore.OpenAndReadText(ConfigFileFullPath);
-            Dictionary<string, ServersGroupInfo>? config =
-                JsonSerializer.Deserialize<Dictionary<string, ServersGroupInfo>>(configText)
+            DatabaseSchemasInfo? targetDatabaseInfo =
+                Configuration.TryGet(database);
+
+            if (targetDatabaseInfo is null)
+            {
+                return [];
+            }
+
+            return targetDatabaseInfo.Schemas.Values;
+        }
+
+        private static Dictionary<string, DatabaseSchemasInfo> LoadSchemasConfig()
+        {
+            return FileExplore.OpenAndReadJson<Dictionary<string, DatabaseSchemasInfo>>(ConfigFileFullPath)
                 ?? [];
-            return config;
         }
     }
 }

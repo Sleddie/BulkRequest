@@ -5,13 +5,13 @@ namespace BulkRequest.Config
     internal class DatabaseSchemasInfo : DatabaseInfo, IJsonOnDeserialized
     {
         public required SchemaInfo Kernel { get; init; }
-        public required Dictionary<string, SchemaInfo> DataBanks { get; init; }
+        public required Dictionary<string, SchemaInfo> Schemas { get; init; }
 
         public void OnDeserialized()
         {
-            foreach (SchemaInfo dataBank in DataBanks.Values)
+            foreach (SchemaInfo schema in Schemas.Values)
             {
-                dataBank.Kernel = Kernel;
+                schema.Kernel = Kernel;
             }
         }
     }
