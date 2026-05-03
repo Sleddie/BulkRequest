@@ -1,5 +1,4 @@
 ﻿using DefaultSolutions;
-using System.Text.Json;
 
 namespace BulkRequest.Config
 {
@@ -8,7 +7,7 @@ namespace BulkRequest.Config
         /// <summary>Имя файла конфигурации распределённой базы данных.</summary>
         public const string DefaultConfigFileName = "database.config.json";
 
-        private static Lazy<Dictionary<string, ServersGroupInfo>> s_connectionConfig =
+        private readonly static Lazy<Dictionary<string, ServersGroupInfo>> s_connectionConfig =
             new(LoadConnectionConfig);
 
         private static string ConfigFileFullPath
@@ -24,7 +23,7 @@ namespace BulkRequest.Config
             }
         }
 
-        private static Dictionary<string, ServersGroupInfo> Configuration
+        internal static Dictionary<string, ServersGroupInfo> Configuration
         {
             get => s_connectionConfig.Value;
         }

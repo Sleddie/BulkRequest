@@ -7,7 +7,7 @@ namespace BulkRequest.Config
         /// <summary>Имя файла конфигурации схем в базах данных.</summary>
         public const string DefaultConfigFileName = "schema.config.json";
 
-        private static Lazy<Dictionary<string, DatabaseSchemasInfo>> s_connectionConfig =
+        private readonly static Lazy<Dictionary<string, DatabaseSchemasInfo>> s_connectionConfig =
             new(LoadSchemasConfig);
 
         private static string ConfigFileFullPath
