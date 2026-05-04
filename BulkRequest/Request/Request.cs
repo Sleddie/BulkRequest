@@ -1,11 +1,12 @@
-﻿using BulkRequest.Connection;
+﻿using BulkRequest.Config;
+using BulkRequest.Connection;
 
 namespace BulkRequest.Request
 {
     public static class Request
     {
         private static bool SafeRequest<TResult>(
-            string rawQueryText,
+            this RawQuerySettings rawQuery,
             ConnectionParams connectionParams,
             RequestFunc<TResult> requestFromDb,
             ResultUnit<TResult> resultUnit,
@@ -33,10 +34,8 @@ namespace BulkRequest.Request
                         ? QueryBuilder.GetQueries
                         : QueryBuilder.GetUnionAllQueries;
 
-                    bool received = RunRawRequest(
-                        rawQueryText,
-                        connectionStringInfo.Database.Name,
-                        connectionStringInfo.ConnectionString,
+                    bool received = rawQuery.RunRawRequest(
+                        connectionStringInfo,
                         queryBuilderFunc,
                         requestFromDb,
                         out TResult? singleResult,
@@ -79,9 +78,8 @@ namespace BulkRequest.Request
         }
 
         private static bool RunRawRequest<TResult>(
-            string rawQueryText,
-            string databaseName,
-            string connectionString,
+            this RawQuerySettings rawQuery,
+            ConnectionInfo connectionInfo,
             QueryBuilderFunc buildQueries,
             RequestFunc<TResult> requestFromDb,
             out TResult? result,
@@ -89,8 +87,8 @@ namespace BulkRequest.Request
         {
             IEnumerable<string>? preparedQueries =
                 buildQueries(
-                    rawQueryText,
-                    databaseName,
+                    rawQuery,
+                    connectionInfo.Database,
                     resultUnit);
 
             if (preparedQueries is null)
@@ -105,8 +103,8 @@ namespace BulkRequest.Request
             foreach (string query in preparedQueries)
             {
                 requestFromDb(
+                    connectionInfo,
                     query,
-                    connectionString,
                     out result,
                     resultUnit);
             }
@@ -115,12 +113,12 @@ namespace BulkRequest.Request
         }
 
         private delegate IEnumerable<string>? QueryBuilderFunc(
-            string rawQueryText,
-            string databaseName,
+            RawQuerySettings rawQuery,
+            DatabaseInfo database,
             IMessageUnit? messageUnit = null);
 
         private delegate TResult RequestFunc<TResult>(
-            string connectionString,
+            ConnectionInfo connectionInfo,
             string queryText,
             out TResult result,
             ResultUnit<TResult> resultUnit);

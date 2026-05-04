@@ -23,7 +23,7 @@ namespace BulkRequest.Config
             }
         }
 
-        private static Dictionary<string, DatabaseSchemasInfo> Configuration
+        internal static Dictionary<string, DatabaseSchemasInfo> Configuration
         {
             get => s_connectionConfig.Value;
         }
