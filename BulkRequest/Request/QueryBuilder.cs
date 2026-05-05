@@ -11,7 +11,15 @@ namespace BulkRequest.Request
             DatabaseInfo database,
             IMessageUnit? messageUnit = null)
         {
-            throw new NotImplementedException();
+            DatabaseSchemasInfo? databaseSchemasInfo =
+                SchemasConfiguration.Configuration.TryGet(database.Name);
+
+            if (databaseSchemasInfo is null)
+            {
+                return null;
+            }
+
+            return rawQuery.FillQueries(databaseSchemasInfo, messageUnit);
         }
 
         public static string GetUnionAllQuery(
@@ -19,7 +27,27 @@ namespace BulkRequest.Request
             DatabaseInfo database,
             IMessageUnit? messageUnit = null)
         {
-            throw new NotImplementedException();
+            IEnumerable<string>? queries =
+                rawQuery.GetQueries(database, messageUnit);
+
+            if (queries is null)
+            {
+                return "";
+            }
+
+            StringBuilder unionAllQueryBuilder = new();
+
+            foreach (string queryText in queries)
+            {
+                if (unionAllQueryBuilder.Length > 0)
+                {
+                    unionAllQueryBuilder.AppendLine(" UNION ALL ").AppendLine();
+                }
+
+                unionAllQueryBuilder.Append(queryText);
+            }
+
+            return unionAllQueryBuilder.ToString();
         }
 
         public static IEnumerable<string>? GetUnionAllQueries(
