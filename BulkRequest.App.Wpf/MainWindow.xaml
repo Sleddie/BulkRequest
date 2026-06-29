@@ -5,24 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BulkRequest.App.Wpf"
         mc:Ignorable="d"
-        Title="Bulk Request" Height="800" Width="1200" WindowStartupLocation="CenterOwner">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="40*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
-        <GridSplitter Grid.Row="0" Grid.Column="1" Width="4" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="#FF007EFF"/>
-        <GridSplitter Grid.Row="1" Grid.ColumnSpan="2" Height="4" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#FF007EFF"/>
-        <local:QueryTextEditor x:Name="_queryTextEditor" Grid.Row="0" Grid.Column="1" Margin="4,0,0,0"/>
-        <GroupBox Grid.Row="1" Grid.ColumnSpan="2" Margin="0,4,0,0">
-            <GroupBox.Header>
-                <Label Content="_Журнал" Target="{Binding ElementName=_logTextBox}"/>
-            </GroupBox.Header>
-            <TextBox x:Name="_logTextBox" Background="Black" BorderBrush="{x:Null}" Foreground="White"/>
-        </GroupBox>
-    </Grid>
+        Title="Bulk Request" Height="800" Width="1200" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <TabControl>
+        <TabItem Header="Query settings">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="#FF007EFF"/>
+                <local:RequestSettingsEditor x:Name="_requestSettingsControl" Grid.Column="0"/>
+                <local:QueryTextEditor x:Name="_queryTextEditor" Grid.Column="1" Margin="4,0,0,0"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="UNION ALL">
+            <local:MultipleTextControl x:Name="_unionAllQueriesControl"/>
+        </TabItem>
+        <TabItem Header="Result">
+            <local:TableOutputControl x:Name="_tableOutputControl"/>
+        </TabItem>
+        <TabItem Header="Messages">
+            <local:LogMessageControl x:Name="_logControl"/>
+        </TabItem>
+    </TabControl>
 </Window>

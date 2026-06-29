@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using BulkRequest.App.Wpf.QueryText;
+using System.Windows;
 
 namespace BulkRequest.App.Wpf
 {
