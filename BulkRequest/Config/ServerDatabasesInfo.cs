@@ -1,17 +1,16 @@
 using System.Text.Json.Serialization;
 
-namespace BulkRequest.Config
-{
-    internal class ServerDatabasesInfo : ServerInfo, IJsonOnDeserialized
-    {
-        public required Dictionary<string, DatabaseInfo> Databases { get; init; }
+namespace BulkRequest.Config;
 
-        public void OnDeserialized()
+internal class ServerDatabasesInfo : ServerInfo, IJsonOnDeserialized
+{
+    public required Dictionary<string, DatabaseInfo> Databases { get; init; }
+
+    public void OnDeserialized()
+    {
+        foreach (DatabaseInfo db in Databases.Values)
         {
-            foreach (DatabaseInfo db in Databases.Values)
-            {
-                db.Server = this;
-            }
+            db.Server = this;
         }
     }
 }

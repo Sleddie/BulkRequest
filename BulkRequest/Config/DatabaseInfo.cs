@@ -1,8 +1,7 @@
-namespace BulkRequest.Config
+namespace BulkRequest.Config;
+
+public class DatabaseInfo
 {
-    public class DatabaseInfo
-    {
-        public required string Name { get; init; }
-        public ServerInfo? Server { get; internal set; }
-    }
+    public required string Name { get; init; }
+    public ServerInfo? Server { get; internal set; }
 }

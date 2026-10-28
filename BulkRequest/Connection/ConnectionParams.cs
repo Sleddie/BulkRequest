@@ -1,6 +1,5 @@
 ﻿using BulkRequest.Config;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
 namespace BulkRequest.Connection;
 
